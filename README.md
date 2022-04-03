@@ -1,1 +1,1 @@
-# selenium_wd_training TEST - bad commit
+# selenium_wd_training TEST
