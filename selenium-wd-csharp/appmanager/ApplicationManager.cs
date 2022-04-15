@@ -18,6 +18,7 @@ namespace selenium_wd_csharp
         protected string baseURL;
 
         protected LoginHelper loginHelper;
+        protected NavigationHelper navigationHelper;
 
         private static ThreadLocal<ApplicationManager> app = new ThreadLocal<ApplicationManager>();
 
@@ -30,6 +31,7 @@ namespace selenium_wd_csharp
             driver.Url = baseURL;
 
             loginHelper = new LoginHelper(this);
+            navigationHelper = new NavigationHelper(this);
         }
 
         ~ApplicationManager()
@@ -72,6 +74,14 @@ namespace selenium_wd_csharp
             {
                 return loginHelper;
             }
-        }       
+        }   
+        
+        public NavigationHelper Navigation
+        {
+            get
+            {
+                return navigationHelper;
+            }
+        }
     }
 }

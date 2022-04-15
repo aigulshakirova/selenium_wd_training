@@ -4,6 +4,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
+using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 
@@ -15,12 +16,16 @@ namespace selenium_wd_csharp
         private IWebDriver driver;
         private WebDriverWait wait;
 
-      //  public object ExpectedConditions { get; private set; }
-
         [SetUp]
         public void start()
         {
+         /*   FirefoxOptions options = new FirefoxOptions();
+            options.BrowserExecutableLocation = @"C:\Program Files\Firefox Nightly\firefox.exe";
+            driver = new FirefoxDriver(options); */
+
             driver = new FirefoxDriver();
+            // driver = new ChromeDriver();
+           // driver = new EdgeDriver();
             wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
         }
 
