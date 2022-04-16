@@ -15,10 +15,12 @@ namespace selenium_wd_csharp
     public class ApplicationManager
     {
         protected IWebDriver driver;
-        protected string baseURL;
+        protected string baseAdminURL;
+        protected string baseShopURL;
 
         protected LoginHelper loginHelper;
         protected NavigationHelper navigationHelper;
+        protected ShopHelper shopHelper;
 
         private static ThreadLocal<ApplicationManager> app = new ThreadLocal<ApplicationManager>();
 
@@ -27,11 +29,13 @@ namespace selenium_wd_csharp
             //   driver = new FirefoxDriver();
             driver = new ChromeDriver();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-            baseURL = "http://localhost/litecart/admin/login.php";
-            driver.Url = baseURL;
+            baseAdminURL = "http://localhost/litecart/admin/login.php";
+            baseShopURL = "http://localhost/litecart/en/";
+            driver.Url = baseShopURL;
 
             loginHelper = new LoginHelper(this);
             navigationHelper = new NavigationHelper(this);
+            shopHelper = new ShopHelper(this);
         }
 
         ~ApplicationManager()
@@ -81,6 +85,14 @@ namespace selenium_wd_csharp
             get
             {
                 return navigationHelper;
+            }
+        }
+
+        public ShopHelper Shop
+        {
+            get
+            {
+                return shopHelper;
             }
         }
     }

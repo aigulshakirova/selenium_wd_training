@@ -29,7 +29,8 @@ namespace selenium_wd_csharp
                 }
                 if(i != 0)
                 {
-                    driver.FindElements(By.XPath("//../ul[contains(@id,'menu')]/li/../..//ul[contains(@id,'menu')]/li"))[i].Click();
+                 //   driver.FindElements(By.XPath("//../ul[contains(@id,'menu')]/li/../..//ul[contains(@id,'menu')]/li"))[i].Click();
+                    driver.FindElements(By.XPath("//ul[contains(@id,'menu')]/li"))[i].Click();
                 }
                 
                 WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
